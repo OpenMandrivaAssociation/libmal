@@ -36,7 +36,7 @@ Whittaker's malsync distribution, along with a few wrapper functions.
 
 
 %package -n 	%{develname}
-Summary:        Development tools for programs which will use the %{name} library.
+Summary:        Development tools for programs which will use the %{name} library
 Group:          Development/C
 Requires:   	%{libname} = %{version}-%release
 Provides:       %{name}-devel = %{version}-%{release}
