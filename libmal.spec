@@ -16,6 +16,7 @@ Patch1:			libmal-0.44-lib64.patch
 Patch2:			libmal-0.44-libtool.patch
 Patch3:			libmal-0.31-64bit-fixes.patch
 Summary: 		MAL library for AvantGo
+BuildRoot: 		%{_tmppath}/%{name}-buildroot
 Requires: 		pilot-link
 BuildRequires:		autoconf
 BuildRequires: 		pilot-link-devel >= 0.12.0
