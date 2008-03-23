@@ -1,6 +1,6 @@
 %define name    	libmal
 %define version 	0.44
-%define release 	%mkrel 2
+%define release 	%mkrel 3
 %define major   	1
 %define libname 	%mklibname mal %{major}
 %define develname	%mklibname mal -d
@@ -8,7 +8,7 @@
 Name: 			%{name}
 Version: 		%{version}
 Release: 		%{release}
-Group: 			Communications
+Group: 			System/Libraries
 License: 		MPL
 URL: 			http://jasonday.home.att.net/code/libmal/libmal.html
 Source: 		http://jasonday.home.att.net/code/libmal/%{name}-%{version}.tar.gz
@@ -89,7 +89,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{libname}
 %defattr(-,root,root,-)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}
+%{_libdir}/*.so.%{major}.*
 
 %files -n %{develname}
 %defattr(-,root,root)
