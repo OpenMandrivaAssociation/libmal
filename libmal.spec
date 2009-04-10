@@ -14,7 +14,7 @@ URL: 			http://jasonday.home.att.net/code/libmal/libmal.html
 Source: 		http://jasonday.home.att.net/code/libmal/%{name}-%{version}.tar.gz
 Patch1:			libmal-0.44-lib64.patch
 Patch2:			libmal-0.44-libtool.patch
-Patch3:			libmal-0.31-64bit-fixes.patch
+Patch3:			libmal-0.44-64bit-fixes.patch
 Summary: 		MAL library for AvantGo
 BuildRoot: 		%{_tmppath}/%{name}-buildroot
 Requires: 		pilot-link
@@ -65,9 +65,9 @@ MobileLink web sites.
 %patch1 -p1 -b .lib64
 %patch2 -p1 -b .libtool
 %patch3 -p1 -b .64bit-fixes
-autoconf
 
 %build
+autoreconf -fi
 %configure2_5x
 %make
 
