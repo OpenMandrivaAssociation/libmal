@@ -1,6 +1,6 @@
 %define name    	libmal
 %define version 	0.44
-%define release 	%mkrel 4
+%define release 	%mkrel 5
 %define major   	1
 %define libname 	%mklibname mal %{major}
 %define develname	%mklibname mal -d
