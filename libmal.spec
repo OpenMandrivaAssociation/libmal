@@ -1,17 +1,14 @@
-%define name    	libmal
-%define version 	0.44
-%define release 	%mkrel 7
 %define major   	1
 %define libname 	%mklibname mal %{major}
 %define develname	%mklibname mal -d
 
-Name: 			%{name}
-Version: 		%{version}
-Release: 		%{release}
+Name: 			libmal
+Version: 		0.44.1
+Release: 		%mkrel 1
 Group: 			System/Libraries
 License: 		MPL
-URL: 			http://jasonday.home.att.net/code/libmal/libmal.html
-Source: 		http://jasonday.home.att.net/code/libmal/%{name}-%{version}.tar.gz
+URL: 			http://www.jlogday.com/code/libmal/
+Source: 		http://www.jlogday.com/code/libmal/%{name}-%{version}.tar.gz
 Patch1:			libmal-0.44-lib64.patch
 Patch2:			libmal-0.44-libtool.patch
 Patch3:			libmal-0.44-64bit-fixes.patch
@@ -43,7 +40,7 @@ Provides:       %{name}-devel = %{version}-%{release}
 Obsoletes:	%{mklibname mal 0 -d}
 
 %description -n %{develname}
-The %{name}-devel package includes the header files and static libraries
+The %{name}-devel package includes the header files and libraries
 necessary for developing programs using the %{name} library.
 
 If you are going to develop programs which will use the %{name} library
@@ -68,7 +65,7 @@ MobileLink web sites.
 
 %build
 autoreconf -fi
-%configure2_5x
+%configure2_5x --disable-static
 %make
 
 %install
@@ -101,5 +98,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc README
 %_includedir/libmal
 %{_libdir}/*.la
-%{_libdir}/*.a
 %{_libdir}/*.so
