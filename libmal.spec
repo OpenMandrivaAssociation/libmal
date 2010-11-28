@@ -4,7 +4,7 @@
 
 Name: 			libmal
 Version: 		0.44.1
-Release: 		%mkrel 1
+Release: 		%mkrel 2
 Group: 			System/Libraries
 License: 		MPL
 URL: 			http://www.jlogday.com/code/libmal/
