@@ -69,7 +69,7 @@ autoreconf -fi
 %make
 
 %install
-%make DESTDIR=$RPM_BUILD_ROOT install
+%make DESTDIR=%{buildroot} install
 # Remove unpackaged copy of README
 rm -f %{buildroot}%{_docdir}/libmal1/README
 
@@ -82,7 +82,7 @@ rm -f %{buildroot}%{_docdir}/libmal1/README
 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files malsync
 %defattr(-,root,root,-)
