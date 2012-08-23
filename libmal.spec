@@ -97,5 +97,4 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc README
 %_includedir/libmal
-%{_libdir}/*.la
 %{_libdir}/*.so
