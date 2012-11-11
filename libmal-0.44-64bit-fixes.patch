@@ -1,0 +1,14 @@
+--- libmal-0.44/src/libmal.c.64bit-fixes	2006-12-11 03:45:27.000000000 +0100
++++ libmal-0.44/src/libmal.c	2009-04-10 08:55:57.000000000 +0200
+@@ -473,10 +473,8 @@
+ static int createDatabase(int sd, AGDBConfig *db)
+ {
+     int dbhandle;
+-    long creator;
+-    int flags;
++    uint32 creator, flags, type;
+     int cardNo = DEFAULT_CARD_NUM;
+-    long type;
+     int version = 0;
+     int err;
+     

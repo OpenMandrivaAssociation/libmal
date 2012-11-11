@@ -1,0 +1,15 @@
+--- libmal-0.44/configure.in	2007-01-07 10:04:48.000000000 -0800
++++ libmal-0.44/configure.in.new	2007-07-24 16:45:16.000000000 -0700
+@@ -60,8 +60,10 @@ PILOT_LIBS="-lpisock"
+ 
+ if test $pilotlibs = no ; then
+     for pilot_libs in $pilot_prefix/lib /usr/lib /usr/local/lib/ \
+-        /usr/extra/pilot/lib ; do
+-        if test -r "$pilot_libs/libpisock.so" ; then
++	/usr/extra/pilot/lib $pilot_prefix/lib /usr/lib64 /usr/local/lib64 \
++	/usr/extra/pilo/lib64 ; do
++	echo 'int main(void) { return 0; }' > conftest.$ac_ext
++	if AC_TRY_EVAL(ac_link) ; then
+             pilotlibs=yes
+             PILOT_LIBS="-L$pilot_libs $PILOT_LIBS"
+             break
