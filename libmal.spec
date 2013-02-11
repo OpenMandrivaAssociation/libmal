@@ -1,45 +1,44 @@
-%define major   	1
-%define libname 	%mklibname mal %{major}
-%define develname	%mklibname mal -d
+%define	major	1
+%define	libname	%mklibname mal %{major}
+%define	devname	%mklibname mal -d
 
-Name: 			libmal
-Version: 		0.44.1
-Release: 		%mkrel 6
-Group: 			System/Libraries
-License: 		MPL
-URL: 			http://www.jlogday.com/code/libmal/
-Source: 		http://www.jlogday.com/code/libmal/%{name}-%{version}.tar.gz
+Name:			libmal
+Version:		0.44.1
+Release:		7
+Group:			System/Libraries
+License:		MPL
+URL:			http://www.jlogday.com/code/libmal/
+Source0:		http://www.jlogday.com/code/libmal/%{name}-%{version}.tar.gz
 Patch1:			libmal-0.44-lib64.patch
 Patch2:			libmal-0.44-libtool.patch
 Patch3:			libmal-0.44-64bit-fixes.patch
 Summary: 		MAL library for AvantGo
-BuildRoot: 		%{_tmppath}/%{name}-buildroot
 Requires: 		pilot-link
 BuildRequires:		autoconf
 BuildRequires: 		pilot-link-devel >= 0.12.0
 
-%package -n 	%{libname}
-Summary:        MAL library for AvantGo
-Group:          System/Libraries
+%package -n		%{libname}
+Summary:		MAL library for AvantGo
+Group:			System/Libraries
 
 %description 
 libmal is really just a convenience library of the functions in Tom
 Whittaker's malsync distribution, along with a few wrapper functions.
 
 
-%description -n %{libname}
+%description -n	%{libname}
 libmal is really just a convenience library of the functions in Tom
 Whittaker's malsync distribution, along with a few wrapper functions. 
 
 
-%package -n 	%{develname}
-Summary:        Development tools for programs which will use the %{name} library
-Group:          Development/C
-Requires:   	%{libname} = %{version}-%release
-Provides:       %{name}-devel = %{version}-%{release}
+%package -n	%{devname}
+Summary:	Development tools for programs which will use the %{name} library
+Group:		Development/C
+Requires:	%{libname} = %{version}-%release
+Provides:	%{name}-devel = %{version}-%{release}
 Obsoletes:	%{mklibname mal 0 -d}
 
-%description -n %{develname}
+%description -n %{devname}
 The %{name}-devel package includes the header files and libraries
 necessary for developing programs using the %{name} library.
 
@@ -53,54 +52,41 @@ Group:		Communications
 Obsoletes:	malsync
 Provides:	malsync
 
-%description malsync
+%description	malsync
 Malsync is a tool for updating Palm devices from the AvantGo and
 MobileLink web sites.
 
 %prep
 %setup -q
-%patch1 -p1 -b .lib64
-%patch2 -p1 -b .libtool
-%patch3 -p1 -b .64bit-fixes
+%patch1 -p1 -b .lib64~
+%patch2 -p1 -b .libtool~
+%patch3 -p1 -b .64bit-fixes~
+autoreconf -fi
 
 %build
-autoreconf -fi
 %configure2_5x --disable-static
 %make
 
 %install
-%make DESTDIR=%{buildroot} install
+%makeinstall_std
 # Remove unpackaged copy of README
-rm -f %{buildroot}%{_docdir}/libmal1/README
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-
-%clean
-rm -rf %{buildroot}
+rm  %{buildroot}%{_docdir}/libmal1/README
 
 %files malsync
-%defattr(-,root,root,-)
-%_bindir/malsync
+%{_bindir}/malsync
 
 %files -n %{libname}
-%defattr(-,root,root,-)
-%{_libdir}/*.so.%{major}
-%{_libdir}/*.so.%{major}.*
+%{_libdir}/libmal.so.%{major}*
 
-%files -n %{develname}
-%defattr(-,root,root)
+%files -n %{devname}
 %doc README
-%_includedir/libmal
-%{_libdir}/*.so
-
+%{_includedir}/libmal
+%{_libdir}/libmal.so
 
 %changelog
+* Mon Feb 11 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.44.1-7
+- cleanups
+
 * Mon May 02 2011 Oden Eriksson <oeriksson@mandriva.com> 0.44.1-3mdv2011.0
 + Revision: 661496
 - mass rebuild
