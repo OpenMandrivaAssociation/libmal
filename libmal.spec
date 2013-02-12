@@ -12,6 +12,7 @@ Source0:		http://www.jlogday.com/code/libmal/%{name}-%{version}.tar.gz
 Patch1:			libmal-0.44-lib64.patch
 Patch2:			libmal-0.44-libtool.patch
 Patch3:			libmal-0.44-64bit-fixes.patch
+Patch4:			libmal-0.44.1-automake-1.13-fix.patch
 Summary: 		MAL library for AvantGo
 Requires: 		pilot-link
 BuildRequires:		autoconf
@@ -61,6 +62,7 @@ MobileLink web sites.
 %patch1 -p1 -b .lib64~
 %patch2 -p1 -b .libtool~
 %patch3 -p1 -b .64bit-fixes~
+%patch4 -p1 -b .am~
 autoreconf -fi
 
 %build

@@ -1,0 +1,11 @@
+--- libmal-0.44.1/configure.in~	2013-02-12 17:52:40.125338658 +0100
++++ libmal-0.44.1/configure.in	2013-02-12 17:53:30.597938322 +0100
+@@ -2,7 +2,7 @@ dnl Process this file with autoconf to p
+ AC_PREREQ([2.58])
+ AC_INIT(libmal, 0.44.1)
+ AM_INIT_AUTOMAKE([1.8])
+-AM_CONFIG_HEADER([config.h])
++AC_CONFIG_HEADER([config.h])
+ 
+ dnl Check host type
+ AC_CANONICAL_HOST
