@@ -16,7 +16,7 @@ Patch4:			libmal-0.44.1-automake-1.13-fix.patch
 Summary: 		MAL library for AvantGo
 Requires: 		pilot-link
 BuildRequires:		autoconf
-BuildRequires: 		pilot-link-devel >= 0.12.0
+BuildRequires: 		pkgconfig(pilot-link)
 
 %package -n		%{libname}
 Summary:		MAL library for AvantGo
@@ -71,8 +71,6 @@ autoreconf -fi
 
 %install
 %makeinstall_std
-# Remove unpackaged copy of README
-rm  %{buildroot}%{_docdir}/libmal1/README
 
 %files malsync
 %{_bindir}/malsync
@@ -86,7 +84,9 @@ rm  %{buildroot}%{_docdir}/libmal1/README
 %{_libdir}/libmal.so
 
 %changelog
-* Mon Feb 11 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.44.1-7
+* Tue Feb 12 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.44.1-7
+- use pkgconfig() dep for buildrequires
+- fix build with automake 1.13 (P4)
 - cleanups
 
 * Mon May 02 2011 Oden Eriksson <oeriksson@mandriva.com> 0.44.1-3mdv2011.0
