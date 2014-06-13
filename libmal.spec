@@ -5,7 +5,7 @@
 Summary: 		MAL library for AvantGo
 Name:			libmal
 Version:		0.44.1
-Release:		11
+Release:		12
 Group:			System/Libraries
 License:		MPL
 Url:			http://www.jlogday.com/code/libmal/
