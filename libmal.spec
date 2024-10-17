@@ -8,7 +8,7 @@ Version:		0.44.1
 Release:		17
 Group:			System/Libraries
 License:		MPL
-Url:			http://www.jlogday.com/code/libmal/
+Url:			https://www.jlogday.com/code/libmal/
 Source0:		http://www.jlogday.com/code/libmal/%{name}-%{version}.tar.gz
 Patch1:			libmal-0.44-lib64.patch
 Patch2:			libmal-0.44-libtool.patch
