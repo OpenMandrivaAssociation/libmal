@@ -14,6 +14,11 @@ Patch1:			libmal-0.44-lib64.patch
 Patch2:			libmal-0.44-libtool.patch
 Patch3:			libmal-0.44-64bit-fixes.patch
 Patch4:			libmal-0.44.1-automake-1.13-fix.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: 		pkgconfig(pilot-link)
 Requires: 		pilot-link
 
